@@ -8,7 +8,13 @@ var searchResults = $('#searchResults');
 var row2 = $('#row2')
 searchBtn.on("click", function () {
     console.log(userInput.val())
-    getWeather(userInput.val())
+    const cityInput = userInput.val();
+
+    if (cityInput) {
+        getWeather(cityInput);
+    } else {
+        alert("Please enter a city name.");
+    }
 });
 function getWeather(city) {
     var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + API + '&units=imperial';
@@ -20,12 +26,18 @@ function getWeather(city) {
         .then(function (data) {
             console.log(data)
             getForcast(data)
+            localStorage.setItem('cityData', JSON.stringify(data.name));
+            // var cityData = JSON.parse(localStorage.getItem('cityData'));
             var city = document.getElementById("city")
             city.textContent = data.name
+            currentWeather.empty();
             currentWeather.append(data.name + ' (' + dayjs.unix(data.dt).format('MM/DD/YYYY') + ') <img src="https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png">');
             currentWeather.append('<p>Temperature:' + data.main.temp + '</p>')
             currentWeather.append('<p>Humidity: ' + data.main.humidity + '</p>')
             currentWeather.append('<p>Wind: ' + data.wind.speed + '</p>')
+            searchResults.append('<button class = "recentCity"></button>')
+            var recentCityBtn = $('.recentCity')
+            recentCityBtn.text(data.name)
         });
 }
 function getForcast(data) {
@@ -38,7 +50,7 @@ function getForcast(data) {
         .then(function (data) {
             console.log(data)
             row2.empty();
-            for (let i = 2; i < data.list.length; i += 8) {
+            for (let i = 3; i < data.list.length; i += 8) {
                 console.log(data.list[i])
                 row2.append(` <div class="col">
       <div class="card" id="monday">
@@ -55,4 +67,5 @@ function getForcast(data) {
     </div>`)
             }
         });
+
 };
