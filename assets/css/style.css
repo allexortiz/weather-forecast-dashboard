@@ -1,0 +1,12 @@
+#searchResults, #currentWeather {
+    height:200px;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin-top: 0px;
+  }
+  
+  #currentWeather {
+    font-size: 20px;
+    display: flex;
+    margin: auto;
+  }
