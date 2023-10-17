@@ -92,8 +92,12 @@ function displayWeather(data) {
     // Clear the current weather section
     currentWeather.empty();
 
-    // Display information like temperature, humidity, and wind speed
-    currentWeather.append(data.name + ' (' + dayjs.unix(data.dt).format('MM/DD/YYYY') + ') <img src="https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png">');
+   // Display information like temperature, humidity, and wind speed
+   currentWeather.append(data.name + ' (' + dayjs.unix(data.dt).format('MM/DD/YYYY') + ')');
+
+   // Append an image with a class for styling
+   currentWeather.append('<img class="weather-icon" src="https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png">');
+
     currentWeather.append('<p>Temperature:' + data.main.temp + '</p>')
     currentWeather.append('<p>Humidity: ' + data.main.humidity + '</p>')
     currentWeather.append('<p>Wind: ' + data.wind.speed + '</p>')

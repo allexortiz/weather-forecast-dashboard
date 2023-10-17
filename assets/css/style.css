@@ -1,12 +1,78 @@
-#searchResults, #currentWeather {
-    height:200px;
-    border-radius: 15px;
-    border: 1px solid black;
-    margin-top: 0px;
-  }
-  
-  #currentWeather {
-    font-size: 20px;
-    display: flex;
-    margin: auto;
-  }
+h1, input, button {
+    padding: 10px;
+}
+/* Add styling for the overall weather-themed look */
+.weather-theme {
+    background-color: #87CEEB; /* Light blue background resembling the sky */
+    color: #fff; /* White text for better visibility */
+}
+
+/* Style the input and button */
+#input, #btn {
+    background-color: #4682B4; /* SteelBlue for the input and button */
+    color: #fff; /* White text for better visibility */
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Style the search results and current weather sections */
+#currentWeather, #searchResults {
+    background-color: #5F9EA0; /* CadetBlue for the sections */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Style the recent city buttons */
+.recentCity {
+    background-color: #4169E1; /* RoyalBlue for the buttons */
+    color: #fff; /* White text for better visibility */
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the forecast cards */
+.card {
+    background-color: #87CEEB; /* Light blue background resembling the sky */
+    color: #333; /* Dark text for better visibility on the light blue background */
+    border: 1px solid #4682B4; /* SteelBlue border for the cards */
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Style the forecast card titles */
+.card-title {
+    color: #4682B4; /* SteelBlue for the card titles */
+}
+
+/* Style the forecast card list items */
+.list-group-item {
+    background-color: #5F9EA0; /* CadetBlue for the list items */
+    border: none;
+}
+
+/* Style the temperature, humidity, and wind speed spans */
+.temperature, .humidity, .windspeed {
+    font-weight: bold;
+}
+
+#btn:hover {
+    background-color: #FFA500; /* Orange */
+}
+
+
+#currentWeather img {
+    /* width: 100px; */
+    /* height: 100px; */
+    /* margin-right: 10px; */
+
+    display: block;
+    margin: 0 auto; /* Center the image */
+    max-width: 100%; /* Ensure the image does not exceed its container width */
+    height: auto; /* Maintain the aspect ratio of the image */
+}
